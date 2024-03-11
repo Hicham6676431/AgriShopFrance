@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Points Relais dans le Département {{ departementId }}{% endblock %}
+
+{% block body %}
+<div class="points-relais">
+  <h1>Points Relais dans le Département {{ departementId }}</h1>
+  <div class="liste-points-relais">
+    {% for pointRelais in pointsRelais %}
+      <div class="point-relais">
+        <h3>{{ pointRelais.nom }}</h3>
+        <p>Adresse : {{ pointRelais.adresse ~' ,'~ pointRelais.ville ~' ,'~ pointRelais.cp }}</p>
+        <p>Jours d'ouverture : {{ pointRelais.jourOuverture}}</p>
+        <p>Horaires de : {{ pointRelais.heureOuverture|date(' H:i') }} à {{ pointRelais.heureFermeture|date(' H:i') }} </p>
+      
+        <!-- Ajouter d'autres détails du point relais si nécessaire -->
+      </div>
+    {% else %}
+      <p>Aucun point relais trouvé dans ce département.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

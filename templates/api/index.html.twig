@@ -1,0 +1,26 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello ApiController!{% endblock %}
+
+{% block body %}
+
+
+{% for data in datas %}
+    {{ dump(data) }}
+{% endfor %}
+{% endblock %}
+{#  #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des départements api {% endblock %}
+
+{% block body %}
+<h1>Liste des départements api</h1>
+
+{% for departement in datas %}
+    <a href="{{ path('app_categorie', {'departementId': departement.code}) }}">{{ departement.nom }}</a><br>
+    
+{% endfor %}
+
+
+{% endblock %} 

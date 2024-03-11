@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits par région{% endblock %}
+
+{% block body %}
+    <h1>Produits par région </h1>
+    <h3>faire le stylecss pour affichage </h3>
+    <h2>Département : {{ departementId }}</h2>
+
+    <div class="products">
+        {% for produit in produits %}
+            <div class="product">
+                <h3>{{ produit.nom }}</h3>
+                <p>Description : {{ produit.description }}</p>
+                <p>Prix : {{ produit.prix }}</p>
+                {% for img in produit.images %}
+                <figure>
+                    <img src="{{ asset('Uploads/images/' ~ img.nom)}}" alt="{{produit.nom}}">
+                </figure>
+            {% endfor %}
+            
+                {# Ajoutez d'autres détails du produit ici selon vos besoins #}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+
+

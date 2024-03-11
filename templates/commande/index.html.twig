@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommandeController!{% endblock %}
+
+{% block body %}
+    <h1>liste des commandes</h1>
+    {# pour faire le tableau regarder video partie2  22.00min #}
+
+    {% for commande in commandes %}
+        {{ commande.nom }}
+    {% endfor %}
+    
+
+{% endblock %}

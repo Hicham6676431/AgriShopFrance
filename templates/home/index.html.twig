@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+{% if data is defined %}
+    
+{{ dump(data) }}
+{% endif %}
+
+<div id="container">
+    
+
+    <main>
+        {# ma video de presentation de mon site accueil #}
+        <section>
+            <div class="vdo">
+                <figure>
+                    <video src="">video ici</video>
+                </figure>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dicta suscipit repudiandae expedita, perspiciatis cupiditate! Laboriosam consequuntur vero a. Temporibus natus molestias, consectetur dolore eligendi reiciendis eveniet fuga autem cupiditate!
+                </p>
+            </div>
+
+        </section>
+        
+        {# ma carte cliquable recherche par departement#}
+        <section class="carte-cliquable">
+            <div class="carte">
+                <figure>
+                    <img usemap="#carte_france" src="{{ asset('images/carteFrance.png') }}" alt="Carte de France">
+                
+                <map name="carte_france">
+                    <area
+                        shape="poly"
+                        coords="1505,213,1483,233,1483,254,1445,271,1424,262,1424,288,1420,317,1406,332,1385,352,1391,372,1391,401,1365,398,1336,424,1348,456,1328,468,1328,488,1330,502,1310,520,1302,534,1299,560,1304,583,1322,589,1304,597,1293,641,1313,644,1330,667,
+                        1330,684,1345,698,1362,696,1368,724,1380,745,1411,739,1432,742,1449,739,1472,739,1484,719,1507,722,1553,768,1547,785,1556,802,1582,802,1602,820,1619,805,1642,805,1663,797,1665,765,1686,759,1700,727,1732,710,1741,727,1755,736,1781,727,1795,742,
+                        1816,733,1853,759,1873,771,1882,802,1896,814,1902,834,1920,846,1954,831,1963,808,1957,774,1960,733,1969,716,1957,681,1980,635,1980,612,1989,583,1989,551,2009,537,2021,514,2032,494,2055,473,1992,456,1957,453,1922,427,1902,433,1873,447,1850,424,
+                        1827,424,1816,433,1793,413,1787,387,1761,367,1743,369,1723,361,1703,369,1674,367,1648,346,1616,361,1602,349,1585,332,1556,317,1521,303,1518,274,1515,248,1518,222"
+                        href="{{path('app_api' , {'regionId' : 44})}}"
+                        alt="grand_est"
+                        title="alsace_champagne_ardenne_lorraine"
+                    />
+
+                    <area
+                        shape="poly"
+                        coords="1420,261,1406,263,1419,240,1401,221,1413,198,1384,172,1339,172,1328,156,1310,137,1288,137,1268,130,1264,90,1251,72,1219,78,1206,88,1179,65,1173,36,1159,-1,1132,10,1044,27,1008,54,1006,192,1024,216,1003,207,981,236,993,243,1033,286,1044,
+                        317,1033,336,1032,359,1046,377,1035,403,1048,435,1035,433,1043,457,1075,460,1092,448,1112,466,1126,457,1166,482,1177,475,1190,484,1202,477,1215,484,1231,480,1257,477,1257,495,1266,502,1280,517,1290,524,1300,533,1310,526,1322,517,1339,491,1322,
+                        488,1329,475,1326,458,1342,458,1331,442,1329,422,1348,411,1364,408,1364,393,1375,398,1389,408,1391,389,1397,360,1386,353,1388,342,1404,340,1404,328,1417,320,1417,295,1417,273"
+                        href="{{path('app_api' , {'regionId' : 32})}}"
+                        alt="nord_pas_de_calais_picardie"
+                        title="nord_pas_de_calais_picardie"
+                    />
+
+
+                    </map>
+                </figure>
+            </div>
+      
+            <ul id="regionsList"></ul>
+        </section>
+
+        <section class="caroussel">
+            <div class="caroussel-annonces">
+                {# ici la vue de mes annonces dernierement publiées #}
+                <figure>
+                    <img src="public/images/fleche-droite.png" class="bouton" alt="bouton-fleche-droit" id="d">
+                    <figure>
+                        <img src="public/images/fleche-gauche.png" class="bouton" alt="bouton-fleche-droit" id="g">
+                    </figure>
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <div class="aeration">
+                {# ici aeration avec photo en paralax #}
+            </div>
+        </section>
+
+
+
+        <section>
+
+            <div class="categorie-home">
+                {# mes categories en carte #}
+                <div class="card produits-laitiers">
+                  
+                </div>
+
+                <div class="card produits-de-la-ruche">
+              
+                </div>
+
+        </section>
+        
+        {# contien mon article concernant les livraison #}
+        
+        
+        
+        
+        <section>
+        <article>
+            <p>
+                    mhgomùarhgmoahrgoùahrg
+                </p>
+            </article>
+            <aside>
+                {# contien une map ou img des point relais #}
+                <figure>
+                    <img src="" alt="">
+                </figure>
+            </aside>
+        </section>
+
+    </main>
+<footer>
+    {# mention legal
+    info contact 
+    liens vers pages 
+    CGV #}
+
+</footer>
+
+
+{% endblock %}

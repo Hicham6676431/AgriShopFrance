@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails d'une catégorie{% endblock %}
+
+{% block body %}
+    <h1>Détails d'une catégorie</h1>
+
+    <h2>Produits de la catégorie "{{ categorie.nom }}"</h2>
+    {% if categorie.produits is not empty %}
+        {% for produit in categorie.produits %}
+            <div>
+                <h3>{{ produit.nom }}</h3>
+                <p>Prix : {{ produit.prix }}€</p>
+                <p>Description : {{ produit.description }}</p>
+                {% if produit.images is not empty %}
+                    {% for img in produit.images %}
+                        <figure>
+                            <img src="{{ asset('Uploads/images/' ~ img.nom) }}" alt="{{ produit.nom }}">
+                        </figure>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucune image disponible pour ce produit.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Aucun produit disponible dans cette catégorie pour le moment.</p>
+    {% endif %}
+       {# Bouton d'ajout de produit avec lien vers le formulaire #}
+       <a href="{{ path('new_produit', {'id': categorie.id}) }}" class="btn btn-primary">Ajouter un produit</a>
+       
+{% endblock %}

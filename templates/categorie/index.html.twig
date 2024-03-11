@@ -1,0 +1,94 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello CategorieController!{% endblock %}
+
+{% block body %}
+    <h1>liste des categories</h1>
+    {# pour faire le tableau des categories regarder video mika partie2  22.00min #}
+{# 
+    {% for categorie in categories %}
+    <a href="{{ path('show_categorie', {'id': categorie.id }) }}">{{ categorie.nom }}</a><br>
+    
+    
+    {% endfor %} #}
+{# 
+    {% for categorie in categories %}
+    <div class="categorie">
+        <h1>{{ categorie.nom }}</h1>
+        <a href="{{ path('show_categorie', {'id': categorie.id}) }}">
+            <img src="{{ asset('public/images/' ~ categorie.image) }}" alt="{{ categorie.nom }}">
+        </a>
+    </div>
+    {% endfor %}
+    
+    {% endblock %} #} 
+{# ///////////////////////////////////////////////////////////////// #}
+    {# {% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories</h1>
+
+    <div class="categories">
+        {% for categorie in categories %}
+            {% if is_granted('ROLE_VENDEUR') %}
+                <li><a href="{{ path('new_produit', {'id' : categorie.id}) }}">Ajouter un produit</a></li>
+            {% endif %}
+
+            <div class="categorie">
+                <a class="btn btn-danger" href="{{ path('delete_categorie', {id: categorie.id}) }}">Supp</a>
+
+                <h2>{{ categorie.nom }}</h2>
+                {% if categorie.imageCat %}
+                    <img src="{{ asset('images/' ~ categorie.imageCat) }}" alt="{{ categorie.nom }}" />
+                {% else %}
+                    <p>Pas d'image disponible</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %} #}
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories</h1>
+    
+    <div class="categories">
+        {% for categorie in categories %}
+        <div class="categorie">
+            <h2>{{ categorie.nom }}</h2>
+            <h5>Nombre de produits : {{ nombreProduitsParCategorie[categorie.id] }}</h5>
+            
+            {% if categorie.imageCat %}
+            <img src="{{ asset('images/' ~ categorie.imageCat) }}" alt="{{ categorie.nom }}" />
+            {% else %}
+            <p>Pas d'image disponible</p>
+            {% endif %}
+            {# {% if departementId is defined  %} #}
+            {# {% endif %} #}
+        </div>
+        <div> 
+            {% if is_granted('ROLE_VENDEUR') %}
+            <a class="btn btn-success" href="{{ path('new_produit', {'id' : categorie.id}) }}">Ajouter un produit</a>
+            {% endif %}
+            <a class="btn btn-primary" href="{{ path('produitsParRegion', {'departementId': departementId,'categorieId': categorie.id}) }}">Voir les produits</a> 
+            
+            <a class="btn btn-danger" href="{{ path('delete_categorie', {id: categorie.id}) }}">Supprimer la catégorie</a>
+            
+        </div>
+            <ul>
+                {# {% for produit in categorie.getProduits() %}
+                    <li>{{ produit.nom }}</li>
+                    <!-- Afficher d'autres détails du produit selon vos besoins -->
+                {% endfor %} #}
+            </ul>
+        {% endfor %}
+     
+    </div>
+{% endblock %}

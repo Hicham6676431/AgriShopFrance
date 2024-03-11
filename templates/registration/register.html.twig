@@ -1,0 +1,76 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+
+        {{ form_row(registrationForm.pseudo) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        {{ form_row(registrationForm.isSeller, {'label': 'Je suis vendeur'}) }}
+        
+        {# Les champs spécifiques aux vendeurs à afficher lorsque la case est cochée #}
+        <div id="sellerForm" style="display: none;">
+            {{ form_row(registrationForm.raisonSociale) }}
+            {{ form_row(registrationForm.numeroSiret) }}
+            {{ form_row(registrationForm.description) }}
+            {{ form_row(registrationForm.adresse) }}
+            {{ form_row(registrationForm.ville) }}
+            {{ form_row(registrationForm.cp) }}
+            {{ form_row(registrationForm.heureOuverture) }}
+            {{ form_row(registrationForm.heureFermeture) }}
+            {{ form_row(registrationForm.jourOuverture) }}
+        </div>
+
+        
+            {# Vos champs de formulaire ici #}
+            <button type="submit">S'inscrire</button>
+       
+        
+        
+    {{ form_end(registrationForm) }}
+
+  
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %} #}

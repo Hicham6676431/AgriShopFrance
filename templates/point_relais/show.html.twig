@@ -1,0 +1,16 @@
+{# show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du point relais{% endblock %}
+
+{% block body %}
+    <h1>Détails du point relais</h1>
+    <p><strong>Nom:</strong> {{ pointRelais.nom }}</p>
+    <p><strong>Adresse:</strong> {{ pointRelais.adresse }}</p>
+    <p><strong>Ville:</strong> {{ pointRelais.ville }}</p>
+    <p><strong>Code postal:</strong> {{ pointRelais.cp }}</p>
+    <p><strong>Heure d'ouverture:</strong> {{ pointRelais.heureOuverture|date('H:i') }}</p>
+    <p><strong>Heure de fermeture:</strong> {{ pointRelais.heureFermeture|date('H:i') }}</p>
+    {# Ajoutez d'autres informations que vous souhaitez afficher #}
+{% endblock %}

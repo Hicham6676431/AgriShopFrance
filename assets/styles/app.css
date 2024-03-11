@@ -1,3 +1,14 @@
 body {
     background-color: skyblue;
 }
+header>.logo>img{
+	width: 10%;
+	
+}
+
+area {
+    cursor: pointer; /* Change le curseur au survol */
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+

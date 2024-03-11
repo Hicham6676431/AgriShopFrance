@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!{% endblock %}
+
+{% block body %}
+<h1>liste des utilisateurs</h1>
+{# pour faire le tableau des produits regarder video partie2  22.00min #}
+{% if utilisateurs is not empty %}
+    {% for utilisateur in utilisateurs %}
+
+        <a class="btn btn-danger" href="{{ path('delete_utilisateur', {id: utilisateur.id}) }}">Supp</a>
+
+        {{ utilisateur.pseudo }}<br>
+
+    {% endfor %}
+{% else %}
+<p> Aucun utilisateur</p>
+{% endif %}
+
+
+{% endblock %}

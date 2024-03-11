@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des points relais{% endblock %}
+
+{% block body %}
+    <h1>Liste des points relais</h1>
+    {% if pointsRelais is not empty  %}
+        <ul>
+            {% for pointRelais in pointsRelais %}
+                <li>
+                    <a href="{{ path('point_relais_show', {'id': pointRelais.id}) }}">
+                        {{ pointRelais.nom }} - {{ pointRelais.ville }}
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('delete_point_relais', {id: pointRelais.id}) }}">Supp</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun point relais dans votre région</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits!{% endblock %}
+
+{% block body %}
+    <h1>liste des produits</h1>
+    {# pour faire le tableau des produits regarder video partie2  22.00min #}
+
+    {% for produit in produits %}
+    <li>
+        <a class="btn btn-danger" href="{{ path('delete_produit', {id: produit.id}) }}">Supp</a><br>
+        <a href="{{ path('show_produit', {'id': produit.id}) }}">
+            {{ produit.nom }}
+        </a>
+    </li>
+        
+        {# <p> Nom : {{ produit.nom }}</p> #}
+        <p> Prix : {{ produit.prix }}€</p>
+        
+
+        {% for img in produit.images %}
+            <figure>
+                <img src="{{ asset('Uploads/images/' ~ img.nom)}}" alt="{{produit.nom}}">
+            </figure>
+        {% endfor %}
+        
+       
+       
+
+    {% endfor %}
+    
+
+{% endblock %}

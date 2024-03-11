@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{# ceci est ma vue des produit detaillé avec les avis la concernant #}
+{% block title %}details d'un produit!{% endblock %}
+
+{% block body %}
+<h1>Détails d'un produit</h1>
+{# ici tu affine le details de la vue ce que tu veix afficher donc a parametrer #}
+<h2> {{ produit.nom }} </h2>
+<p>
+    {% if produit is not empty %}
+    <div>
+            <p><h3> Prix : {{ produit.prix }}</p></h3>
+            
+            {%for img in produit.images %}
+            <figure>
+                <img src="{{ asset('Uploads/images/' ~ img.nom)}}" alt="{{produit.nom}}">
+            </figure>
+            
+            {% endfor %} 
+            <p> Description : {{ produit.description }}</p> 
+        
+        {% else %}
+
+            <p>Produit introuvable</p>
+
+        {% endif %}
+
+    </div>
+{% endblock %} 
+
+
+
